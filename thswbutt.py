@@ -139,9 +139,9 @@ class Switch_Thread(threading.Thread):
                         '''rilegge la configurazione, se e' rimasta stabile
                         dopo 30 millisecondi chiama la funzione apposita
                         '''
-                        if self.switch_change(self.all_valve[r]):
-                            ttime = inout.file_log(self.all_valve)
-                            conf.logtime.put(ttime)
+                        self.switch_change(self.all_valve[r])
+                        ttime = inout.file_log(self.all_valve)
+                        conf.logtime.put(ttime)
         except ValueError:
             logging.info('%s'%self.statusOld)
             logging.info('%s'%self.statusNowSWI)
